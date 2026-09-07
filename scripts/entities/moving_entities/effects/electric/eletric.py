@@ -1,7 +1,7 @@
 from scripts.entities.moving_entities.effects.effect import Effect
 from scripts.engine.keys.keys import keys
 import random
-from scripts.entities.entity.cooldown_handler import Cooldown_Handler
+from scripts.engine.utility.cooldown_handler import Cooldown_Handler
 from ..registry import register_effect
 
 @register_effect(keys.electric)

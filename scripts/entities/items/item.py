@@ -2,7 +2,7 @@ import math
 import pygame
 from scripts.entities.entity.entities import PhysicsEntity
 from scripts.engine.keys.keys import keys
-from scripts.entities.entity.cooldown_handler import Cooldown_Handler
+from scripts.engine.utility.cooldown_handler import Cooldown_Handler
 
 class Item(PhysicsEntity):
     def __init__(self, game, type, sub_category, pos, size=(16, 16),

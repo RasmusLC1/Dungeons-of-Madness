@@ -1,7 +1,7 @@
 from scripts.entities.items.weapons.magic_attacks.ice.ice_particle import Ice_Particle
 from scripts.entities.items.weapons.magic_attacks.ice.ice_shooter import Ice_Shooter
 from scripts.entities.entity.entities import PhysicsEntity
-from scripts.entities.entity.cooldown_handler import Cooldown_Handler
+from scripts.engine.utility.cooldown_handler import Cooldown_Handler
 import math
 import random
 from scripts.engine.keys.keys import keys

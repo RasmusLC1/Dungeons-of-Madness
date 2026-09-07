@@ -1,7 +1,7 @@
 from scripts.entities.items.weapons.weapon_handler import Weapon_Handler
 from scripts.entities.items.runes.rune_handler import Rune_Handler
 from scripts.entities.items.loot.loot_handler import Loot_Handler
-from scripts.entities.entity.cooldown_handler import Cooldown_Handler
+from scripts.engine.utility.cooldown_handler import Cooldown_Handler
 import pygame
 from scripts.engine.keys.keys import keys
 

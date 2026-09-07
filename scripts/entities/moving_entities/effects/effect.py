@@ -1,7 +1,7 @@
 import pygame
 import random
 from scripts.engine.keys.keys import keys
-from scripts.entities.entity.cooldown_handler import Cooldown_Handler
+from scripts.engine.utility.cooldown_handler import Cooldown_Handler
 
 class Effect():
     def __init__(self, entity, effect_type, animation_max, animation_cooldown_max, cooldown_range, description):

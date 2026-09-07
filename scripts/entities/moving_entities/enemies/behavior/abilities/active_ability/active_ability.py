@@ -1,5 +1,5 @@
 from scripts.entities.moving_entities.enemies.behavior.abilities.ability import Ability
-from scripts.entities.entity.cooldown_handler import Cooldown_Handler
+from scripts.engine.utility.cooldown_handler import Cooldown_Handler
 from scripts.engine.keys.keys import keys
 import time
 COOLDOWN_TIME = 50

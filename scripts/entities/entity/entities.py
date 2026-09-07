@@ -4,6 +4,7 @@ import logging
 from scripts.engine.keys.keys import keys
 from .tile_handler import Tile_Handler
 from .animation_handlers.base_animation_handler import Base_Animation_Handler
+from scripts.engine.utility.rect_handler import Rect_Handler
 
 class PhysicsEntity:
     _id_counter = 0
@@ -14,6 +15,7 @@ class PhysicsEntity:
                  max_animation = 0, animation_cooldown_max = 0):
         self.game = game
         self.Set_ID()
+        self.rect_handler = Rect_Handler(size[0], size[1])
 
         self.category = category
         if not sub_category:
@@ -37,6 +39,8 @@ class PhysicsEntity:
         self.active = 0
         self.active_opacity = 255
         self.light_level = 0
+
+
 
         self.touching_ground = True
         self.tile_handler = Tile_Handler(self)
@@ -131,7 +135,7 @@ class PhysicsEntity:
         self.Set_Sprite()
 
     def rect(self):
-        return pygame.Rect(self.pos, self.size)
+        return self.rect_handler.rect(self.pos)
 
     # --- Stateful Logic Engine ---
     def Set_Active(self, duration):

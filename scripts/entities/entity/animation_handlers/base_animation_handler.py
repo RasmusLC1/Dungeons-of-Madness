@@ -1,5 +1,5 @@
 import random
-from ..cooldown_handler import Cooldown_Handler
+from ....engine.utility.cooldown_handler import Cooldown_Handler
 
 class Base_Animation_Handler:
     def __init__(self, entity, animation_max, animation_cooldown_max):

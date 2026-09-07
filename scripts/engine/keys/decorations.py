@@ -86,6 +86,8 @@ class Decorations():
 
     amplifying_node = "amplifying_node" 
 
+    crystalisation_shrine = "crystalisation_shrine"
+
     harmonic_crystal = "harmonic_crystal"
 
     crystal_fountain = "crystal_fountain"

@@ -1,6 +1,6 @@
 from scripts.entities.entity.entities import PhysicsEntity
 from scripts.engine.keys.keys import keys
-from scripts.entities.entity.cooldown_handler import Cooldown_Handler
+from scripts.engine.utility.cooldown_handler import Cooldown_Handler
 
 import math
 import pygame

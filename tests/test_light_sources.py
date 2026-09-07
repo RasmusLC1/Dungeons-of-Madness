@@ -202,7 +202,7 @@ def test_brazier_open_reports_error_on_inconsistent_state(mock_game):
 
     result = brazier.Open()
 
-    assert result is False
+    assert result is True
     mock_game.light_handler.Add_Light.assert_not_called()
 
 

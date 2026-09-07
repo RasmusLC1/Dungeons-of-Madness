@@ -9,7 +9,7 @@ Register_Shrine(keys.hunter_shrine)
 @Register_Decoration(keys.hunter_shrine)
 class Hunter_Shrine(Shrine):
     def __init__(self, game, pos) -> None:
-        super().__init__(game, keys.hunter_shrine, pos, (64, 64), max_animation=2)
+        super().__init__(game, keys.hunter_shrine, pos, (64, 64), max_animation=1)
         self.description = "Return the\ntreasure for\nreward"
         self.treasures = []
 
@@ -45,7 +45,7 @@ class Hunter_Shrine(Shrine):
             return False
 
         self.Activate_Shrine()
-        self.Set_Animation(2)
+        self.animation_handler.Set_Static_Animation(2)
         self.game.item_handler.Remove_Item(item, True)
         reward, amount = random.choice(list(GOOD_REWARDS.items()))
         self.game.player.Set_Effect(reward, amount, True)
