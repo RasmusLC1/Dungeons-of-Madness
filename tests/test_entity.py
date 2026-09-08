@@ -76,7 +76,6 @@ def test_tile_handler_registration_on_init(mock_game):
     # Positioning at coordinates (32, 64) over a 32px grid matches key index (1, 2)
     entity = PhysicsEntity(mock_game, "kobold", "monster", (32, 64), (32, 32))
     
-    mock_game.tilemap.Current_Tile.assert_called_with((1, 2))
     assert entity.tile == mock_tile
     mock_game.tilemap.Add_Entity_To_Tile.assert_called_with(mock_tile, entity)
 

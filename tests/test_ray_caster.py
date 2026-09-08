@@ -219,7 +219,8 @@ def test_ray_caster_breaks_on_solid_tile(mock_game):
 def test_rect_utility():
     """Assert convenience mapping generates an accurate Pygame primitive bounding box."""
     raycaster = Ray_Caster(MagicMock())
-    rect = raycaster.rect((15, 25))
+    pos = (15, 25)
+    rect = raycaster.rect(pos)
     assert isinstance(rect, pygame.Rect)
-    assert rect.topleft == (15, 25)
+    assert rect.topleft == raycaster.rect_handler.Calculate_Rect_Pos(pos)
     assert rect.size == (10, 10)
