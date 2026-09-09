@@ -1,5 +1,5 @@
 from scripts.engine.awakening.awakening import Awakening
-from scripts.entities.entity.cooldown_handler import Cooldown_Handler
+from scripts.engine.utility.cooldown_handler import Cooldown_Handler
 from scripts.engine.keys.keys import keys
 
 SILENCE_MULTIPLIER = 100

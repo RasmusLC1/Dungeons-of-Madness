@@ -10,6 +10,7 @@ class Portal_Shrine(Menu_Shrine):
     def __init__(self, game, pos) -> None:
         super().__init__(game, keys.portal_shrine, pos, (64, 64), cycle_requires_open=True, max_animation=3)
         self.available_rune = None  # appears unused past storage — flag if dead
+        self.animation_handler.Set_Static_Animation(0) # Initialise without animation
 
     def Remove_Available_Rune(self):
         self.available_rune = None

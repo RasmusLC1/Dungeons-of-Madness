@@ -1,5 +1,5 @@
 import pygame
-from scripts.entities.entity.cooldown_handler import Cooldown_Handler
+from scripts.engine.utility.cooldown_handler import Cooldown_Handler
 
 MIN_LIGHT_LEVEL = 40
 LIGHT_ALPHA_SCALE = 30

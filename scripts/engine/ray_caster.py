@@ -1,6 +1,6 @@
 import math
 import pygame
-from scripts.engine.keys.keys import keys
+from scripts.engine.utility.rect_handler import Rect_Handler
 
 # Basic raycasting attributes
 DEFAULT_ACTIVITY = 700
@@ -15,7 +15,8 @@ class Ray_Caster():
         self.game = game
         self.tiles = []
         self.saved_data = None
-        
+        self.rect_handler = Rect_Handler(10, 10)
+
         # Pre-calculate ray vectors to save math during runtime
         self.ray_vectors = []
         self._generate_ray_vectors()
@@ -122,4 +123,4 @@ class Ray_Caster():
                     break
 
     def rect(self, pos):
-        return pygame.Rect(pos[0], pos[1], 10, 10)
+        return self.rect_handler.rect(pos)

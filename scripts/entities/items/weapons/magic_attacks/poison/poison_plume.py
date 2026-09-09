@@ -1,5 +1,5 @@
 from scripts.entities.items.weapons.magic_attacks.poison.poison_cloud import Poison_Cloud
-from scripts.entities.entity.cooldown_handler import Cooldown_Handler
+from scripts.engine.utility.cooldown_handler import Cooldown_Handler
 import random
 from scripts.engine.keys.keys import keys
 

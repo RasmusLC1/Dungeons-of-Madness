@@ -1,5 +1,6 @@
 import sys
 from unittest.mock import MagicMock
+from scripts.engine.utility.rect_handler import Rect_Handler
 
 # ==============================================================================
 # DYNAMIC ENGINE GLOBAL MOCKING
@@ -90,6 +91,7 @@ def player(mock_game, mock_tile):
         # Positional attributes
         self.pos = list(args[3]) if len(args) > 3 else list(kwargs.get('pos', [50, 50]))
         self.size = list(args[4]) if len(args) > 4 else list(kwargs.get('size', [32, 32]))
+        self.rect_handler = Rect_Handler(self.size[0], self.size[1])
         
         # Stats & Structural variables
         self.health = args[5] if len(args) > 5 else kwargs.get(keys.health, 100)

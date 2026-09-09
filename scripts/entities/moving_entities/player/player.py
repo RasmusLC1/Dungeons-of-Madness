@@ -16,7 +16,7 @@ class Player(Moving_Entity):
     _effect_handler = Player_Status_Effect_Handler
 
     def __init__(self, game, pos, size, health, strength, max_speed, agility, intelligence, stamina):
-        super().__init__(game, 'player', 'player', pos, size, health, strength, max_speed, agility, intelligence, stamina, 'player')
+        super().__init__(game, keys.player, keys.player, pos, size, health, strength, max_speed, agility, intelligence, stamina, keys.player)
  
         self.bow_cooldown = 0
         self.souls = 500

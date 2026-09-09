@@ -2,7 +2,7 @@ from scripts.entities.traps.trap import Trap
 from scripts.engine.keys.keys import keys
 from scripts.entities.items.weapons.magic_attacks.fire.fire_explosion import Fire_Explosion
 from .crystal_cavern_registry import register_trap
-import pygame
+from scripts.engine.utility.rect_handler import Rect_Handler
 import random
 
 CLATTER_RANGE = 500
@@ -12,17 +12,24 @@ DEFAULT_TRIGGER_RADIUS = 10  # Pixels padded around each side of the crystal
 @register_trap(keys.unstable_crystal, 10.1)
 class Unstable_Crystal(Trap):
     def __init__(self, game, pos):
-        self.trigger_radius = DEFAULT_TRIGGER_RADIUS
-        self.warning_radius = DEFAULT_TRIGGER_RADIUS * 10
         self.damage = 5
         self.center = pos
         version = random.randint(1, 5)
         rendered_image = str(keys.glowing_crystal) + '_' + str(version)
+
+        # 1. Base initialization first to get self.size
         super().__init__(game, pos, rendered_image, max_animation=5,
                          animation_cooldown_max=1.2)
+
+        # 2. Immediately define handler attributes so they exist even if light/tile setup fails
+        explosion_size = int(self.size[0] + DEFAULT_TRIGGER_RADIUS * 2)
+        warning_size = self.size[0] + (DEFAULT_TRIGGER_RADIUS * 10) * 2
+        self.explosion_rect_handler = Rect_Handler(explosion_size, explosion_size)
+        self.warning_rect_handler = Rect_Handler(warning_size, warning_size)
+
+        # 3. Handle lighting/effects after attributes are bound
         self.light_strength = 9
         self.Add_Light()
-
 
     def Update(self, delta_time):
         self.Check_Player_Distance()
@@ -47,31 +54,23 @@ class Unstable_Crystal(Trap):
         return True
 
     # Expanded rect using the trigger radius
-    def rect(self):
-        return pygame.Rect(
-            self.pos[0] - self.trigger_radius,
-            self.pos[1] - self.trigger_radius,
-            self.size[0] + (self.trigger_radius * 2),
-            self.size[1] + (self.trigger_radius * 2)
-        )
+    def explosion_rect(self):
+        return self.explosion_rect_handler.rect(self.pos)
 
     def warning_rect(self):
-        return pygame.Rect(
-            self.pos[0] - self.warning_radius,
-            self.pos[1] - self.warning_radius,
-            self.size[0] + (self.warning_radius * 2),
-            self.size[1] + (self.warning_radius * 2)
-        )
+        return self.warning_rect_handler.rect(self.pos)
 
+  
     def Add_Entity(self, entity):
         pass
     
     def Check_If_Explode(self):
         player = self.game.player
 
-        if not self.rect().colliderect(player.rect()):
+        if not self.explosion_rect().colliderect(player.rect()):
             return False
         self.Explode()
+        return True
 
     def Explode(self):
         self.Generate_Sound(keys.fire_explosion, 0.3, CLATTER_RANGE)
