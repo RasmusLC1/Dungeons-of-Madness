@@ -15,6 +15,7 @@ class Graphics_Loader:
         Graphics_Loader.Asset_Player_List(self)
         Graphics_Loader.Asset_Interative_Objects_List(self)
         Graphics_Loader.Glowing_Crystals_List(self)
+        Graphics_Loader.Crystal_Cavern_Decorations(self)
         Graphics_Loader.Asset_Environment_List(self)
         Graphics_Loader.Asset_Potion_List(self)
         Graphics_Loader.Asset_Decoration_List(self)
@@ -577,6 +578,13 @@ class Graphics_Loader:
             keys.effigy_tomb: get_tiles_from_sheet('decoration/loot_containers/effigy_tomb.png', 1, 0, 0, 0, 32, 64),
             keys.brazier + '_1': get_tiles_from_sheet('decoration/light_sources/brazier_1.png', 5, 0, 0, 0, 32, 32),
             keys.brazier + '_2': get_tiles_from_sheet('decoration/light_sources/brazier_2.png', 5, 0, 0, 0, 32, 32),
+        }
+        self.assets.update(Objects_assets)
+
+    def Crystal_Cavern_Decorations(self):
+        Objects_assets = {
+            keys.amplifying_node + '_1': get_tiles_from_sheet('decoration\crystal_caverns/amplifying_node.png', 5, 0, 0, 0, 32, 32),
+            keys.harmonic_crystal + '_2': get_tiles_from_sheet('decoration\crystal_caverns/harmonic_crystal.png', 5, 0, 0, 0, 32, 32),
         }
         self.assets.update(Objects_assets)
 

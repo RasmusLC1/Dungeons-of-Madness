@@ -22,6 +22,8 @@ class PhysicsEntity:
             sub_category = category
         self.sub_category = sub_category
         self.type = type
+        self.Set_Text_Box()
+
 
         self.pos = pygame.Vector2(pos)
         self.size = list(size)
@@ -48,7 +50,6 @@ class PhysicsEntity:
 
         self.animation_handler = self._animation_handler(self, max_animation, animation_cooldown_max)
 
-        self.Set_Text_Box()
         self.description = ''
         self.light_up_color = (255, 0, 0, 255)
 
